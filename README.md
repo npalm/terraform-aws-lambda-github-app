@@ -2,10 +2,13 @@
 
 This module creates the required infra to handle events of GitHub app via a Lambda connected to API Gateway V2.
 
+The module will create by default an API Gateway with a route on `webhook` for HTTP Post. Requests sent to this webhook will be sent to the lambda. The example lambda will check the GitHub secret.
+
 ## Usages
 
-```terraform
+To create a lambda and API gateway endpoint.
 
+```terraform
 module "lambda-github-app" {
   source = "npalm/lambda-github-app/aws"
 
@@ -26,6 +29,13 @@ module "lambda-github-app" {
 
 - _[default](./examples/default/)_ : Example that will create the lambda based on provided config and a zip file.
 - _[provided-](./examples/provide-lambda/)_ : Example that will let you create the lambda resource and pass the resource to the module. The module will create the API gateway for you.
+
+### Prerequisite:
+
+- Terraform 0.12.x
+- Docker for building the example lambda
+- Amazon account for deployment
+- GitHub account for creating an app
 
 ### Usages
 
