@@ -1,0 +1,16 @@
+# Compiled files
+*.tfstate*
+
+# Module directory
+.terraform/
+
+# keys
+*id_rsa*
+
+.idea
+.DS_Store
+*.out
+*.secrets*.tfvars
+*.zip
+*.gz
+*.log
