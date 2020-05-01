@@ -2,12 +2,32 @@
 
 This module creates the required infra to handle events of GitHub app via a Lambda connected to API Gateway V2.
 
+## Usages
+
+```terraform
+
+module "lambda-github-app" {
+  source = "npalm/lambda-github-app/aws"
+
+  environment = "test"
+  labmda_config = {
+    filename = "lambda.zip"
+    handler  = "index.handler"
+    runtime  = "nodejs12.x"
+    variables = {
+      GITHUB_APP_WEBHOOK_SECRET = "my-secret"
+    }
+  }
+}
+
+```
+
 ## Examples
 
 - _[default](./examples/default/)_ : Example that will create the lambda based on provided config and a zip file.
 - _[provided-](./examples/provide-lambda/)_ : Example that will let you create the lambda resource and pass the resource to the module. The module will create the API gateway for you.
 
-## Usages
+### Usages
 
 ```bash
 # build the lambda
