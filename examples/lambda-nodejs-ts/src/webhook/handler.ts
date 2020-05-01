@@ -1,7 +1,5 @@
 import { IncomingHttpHeaders } from 'http';
 import crypto from 'crypto';
-import { sendActionRequest } from '../sqs';
-import { WebhookPayloadCheckRun } from '@octokit/webhooks';
 
 function signRequestBody(key: string, body: any): string {
   return `sha1=${crypto.createHmac('sha1', key).update(body, 'utf8').digest('hex')}`;
